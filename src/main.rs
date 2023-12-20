@@ -19,6 +19,8 @@ impl Magic21 {
             let inner_vec: Vec<i16> = (0..7).map(|_| rng.gen_range(0..100)).collect();
             random_numbers.push(inner_vec);
         }
+
+        //return the instance of the magic 21 struct
         Magic21{
             numbers_21 : random_numbers,
         }
@@ -64,6 +66,7 @@ fn main() {
     println!("");
     let mut magic21 = Magic21::new();
     (0..=2).for_each(|_|{
+        clearscreen::clear().expect("failed to clear screen");
         magic21.display();
         println!("Which Group is the number located? 1,2 or 3");
         let mut input = String::new();
